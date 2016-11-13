@@ -19,4 +19,13 @@
   }
 }
 
+// googleマップ
+.access-map-wrapper {
+  position: relative;
+  background-color: #ffffff;
+  .access-map {
+    height: 450px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
