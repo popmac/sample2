@@ -1,70 +1,78 @@
 <div class="sample-wrapper">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>実験アプリ</h1>
+  <dic class="application-title section-interval">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>実験アプリ</h1>
+        </div>
+      </div>
+    </div>
+  </dic>
+
+
+  <div class="application-record section-interval">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>やったこと</h2>
+          <ul>
+            <li>コンフリクト</li>
+            <li>バリデーションエラーで生成されるclassのcssを変更</li>
+            <li>一度マージしたブランチに再度コミットをプッシュしたらどうなるか</li>
+            <li>GitHub Desktopを試しに使った</li>
+            <li>地図を埋め込んで中央寄せにした</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>やったこと</h2>
-        <ul>
-          <li>コンフリクト</li>
-          <li>バリデーションエラーで生成されるclassのcssを変更</li>
-          <li>一度マージしたブランチに再度コミットをプッシュしたらどうなるか</li>
-          <li>GitHub Desktopを試しに使った</li>
-          <li>地図を埋め込んで中央寄せにした</li>
-        </ul>
+  <div class="application-function section-interval">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>以下はアプリの機能</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products.each do |product| %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.content %></td>
+                <td><%= link_to 'Show', product %></td>
+                <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to 'Productを作成する', new_product_path, class: "btn btn-primary btn-application-function" %>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>以下はアプリの機能</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Content</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @products.each do |product| %>
-            <tr>
-              <td><%= product.name %></td>
-              <td><%= product.content %></td>
-              <td><%= link_to 'Show', product %></td>
-              <td><%= link_to 'Edit', edit_product_path(product) %></td>
-              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= link_to 'Productを作成する', new_product_path %>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>地図を中央寄せで埋め込んでみた</h2>
-        <div class="access-map-wrapper">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="access-map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205729.03185242313!2d137.10546131074352!3d36.324039223289645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff80862ab1514a5%3A0x767c6bf151a56733!2z5bKQ6Zic55yM6aOb6aio5biC!5e0!3m2!1sja!2sjp!4v1479023235498" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <div class="application-access-map section-interval">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>地図を中央寄せで埋め込んでみた</h2>
+          <div class="access-map-wrapper">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                  <div class="access-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205729.03185242313!2d137.10546131074352!3d36.324039223289645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff80862ab1514a5%3A0x767c6bf151a56733!2z5bKQ6Zic55yM6aOb6aio5biC!5e0!3m2!1sja!2sjp!4v1479023235498" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
                 </div>
               </div>
             </div>
