@@ -21,11 +21,16 @@
 
 .sample-wrapper {
   margin-top: 50px;
+  .section-interval {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .section-position {
+    position: relative;
+    background-color: #ffffff;
+  }
 }
 
-.section-interval {
-  padding-top: 20px;
-  padding-bottom: 20px;
 .jumbotron-section {
   .jumbotron-main {
     position: fixed;
@@ -36,9 +41,6 @@
   }
 }
 
-.btn-application-function {
-  margin-top: 20px;
-  color: #ffffff !important;
 .application-title {
   height: 400px;
   h1 {
@@ -49,15 +51,23 @@
     text-align: center;
   }
 }
+
+.application-function {
+  .btn-application-function {
+    margin-top: 20px;
+    color: #ffffff !important;
+  }
 }
 
-// googleマップ
-.access-map-wrapper {
-  position: relative;
-  background-color: #ffffff;
-  .access-map {
-    height: 450px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+.application-access-map {
+  // googleマップ
+  .access-map-wrapper {
+    position: relative;
+    background-color: #ffffff;
+    .access-map {
+      height: 450px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
   }
 }
