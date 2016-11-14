@@ -137,5 +137,35 @@
     }
   }
 }
+
+.switch-button-section {
+  .btn-block {
+    text-align: center;
+    #btn-switch-before, #btn-switch-after, #btn-switch-none {
+      display: inline-block;
+      width: 150px;
+      margin: 20px;
+      padding: 16px;
+      color: #ffffff;
+    }
+  }
+  .img-block {
+    width: 50%;
+    height: 355px;
+    margin: 0 auto;
+    background-color: #e6e6e6;
+    img {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      &.img-before {
+        display: none;
+        margin: 0 auto;
+      }
+      &.img-after {
+        display: none;
+        margin: 0 auto;
+      }
+    }
   }
 }
