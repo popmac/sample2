@@ -96,6 +96,22 @@
   }
   .between-block {
     width: 150px;
-    background-color: #56A9F6;
+    background-color: #ffffff;
+  }
+  .right-arrow-block {
+    position: relative;
+    width: 150px;
+    background-color: #ffffff;
+    .right-arrow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 50%;
+      height: 10%;
+      background-color: #ff0000;
+    }
   }
 }
