@@ -126,11 +126,14 @@
     justify-content: center;
     p {
       margin-bottom: 0;
+      font-size: 16px;
     }
     .text-tel {
       margin-right: 50px;
       margin-left: 50px;
       font-size: 28px;
+      font-weight: bold;
+      line-height: 0.5;
     }
   }
 }
