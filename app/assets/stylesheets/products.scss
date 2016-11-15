@@ -1,24 +1,3 @@
-// バリデーションエラーが起きた際に表示されるメッセージ
-#error_explanation {
-  display: none;
-}
-// バリデーションエラーが起きた際の表示の挙動を変更したもの
-.field_with_errors {
-  display: inline-block !important;
-  padding: 0 !important;
-  background-color: #ffffff !important;
-  label {
-    color: #ff0000;
-    background-color: #ffffff;
-  }
-  input {
-    border-color: #ff0000;
-  }
-  textarea {
-    border-color: #ff0000;
-  }
-}
-
 .sample-wrapper {
   margin-top: 50px;
   margin-bottom: 50px;
