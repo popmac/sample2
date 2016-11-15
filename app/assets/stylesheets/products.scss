@@ -9,141 +9,136 @@
     position: relative;
     background-color: #ffffff;
   }
-}
-
-.jumbotron-section {
-  .jumbotron-main {
-    position: fixed;
-    width: 100%;
-    height: 400px;
-    background: image-url('jumbotron.png') no-repeat center center;
-    background-size: cover;
-  }
-}
-
-.application-title {
-  height: 400px;
-  h1 {
-    margin-top: 150px;
-    color: #ffffff;
-    font-size: 48px;
-    font-weight: bold;
-    text-align: center;
-  }
-}
-
-.application-function {
-  .btn-application-function {
-    margin-top: 20px;
-    color: #ffffff !important;
-  }
-}
-
-.application-access-map {
-  // googleマップ
-  .access-map-wrapper {
-    position: relative;
-    background-color: #ffffff;
-    .access-map {
-      height: 450px;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-  }
-}
-
-.flex-sample {
-  display: flex;
-  justify-content: space-around;
-  background-color: #aaa;
-  .flex-item {
-    width: 100px;
-    height: 100px;
-  }
-  .item1 {
-    background-color: yellow;
-  }
-  .item2 {
-    background-color: blue;
-  }
-  .item3 {
-    background-color: green;
-  }
-  .flex-image {
-    width: 100%;
-    height: auto;
-  }
-  .between-block {
-    width: 150px;
-    background-color: #ffffff;
-  }
-  .red-box-block {
-    position: relative;
-    width: 150px;
-    background-color: #ffffff;
-    .red-box {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      width: 50%;
-      height: 10%;
-      background-color: #ff0000;
-    }
-  }
-}
-
-.tel-section {
-  padding-top: 32px !important;
-  padding-bottom: 32px !important;
-  background-color: #56A9F6 !important;
-  color: #ffffff;
-  .tel-section-flex {
-    display: flex;
-    justify-content: center;
-    p {
-      margin-bottom: 0;
-      font-size: 16px;
-      &.text-tel {
-        margin-right: 50px;
-        margin-left: 50px;
-        font-size: 28px;
-        font-weight: bold;
-        line-height: 0.5;
-      }
-    }
-  }
-}
-
-.switch-button-section {
-  .btn-block {
-    text-align: center;
-    #btn-switch-before, #btn-switch-after, #btn-switch-none {
-      display: inline-block;
-      width: 150px;
-      margin: 20px;
-      padding: 16px;
-      color: #ffffff;
-    }
-  }
-  .img-block {
-    width: 50%;
-    height: 355px;
-    margin: 0 auto;
-    background-color: #e6e6e6;
-    img {
-      display: block;
+  .jumbotron-section {
+    .jumbotron-main {
+      position: fixed;
       width: 100%;
-      margin: 0 auto;
-      &.img-before {
-        display: none;
-        margin: 0 auto;
+      height: 400px;
+      background: image-url('jumbotron.png') no-repeat center center;
+      background-size: cover;
+    }
+  }
+  .application-title {
+    height: 400px;
+    h1 {
+      margin-top: 150px;
+      color: #ffffff;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  .application-function {
+    .btn-application-function {
+      margin-top: 20px;
+      color: #ffffff !important;
+    }
+  }
+  .application-access-map {
+    // googleマップ
+    .access-map-wrapper {
+      position: relative;
+      background-color: #ffffff;
+      .access-map {
+        height: 450px;
+        margin-top: 50px;
+        margin-bottom: 50px;
       }
-      &.img-after {
-        display: none;
+    }
+  }
+  .flex-section {
+    .flex-sample {
+      display: flex;
+      justify-content: space-around;
+      background-color: #aaa;
+      .flex-item {
+        width: 100px;
+        height: 100px;
+      }
+      .item1 {
+        background-color: yellow;
+      }
+      .item2 {
+        background-color: blue;
+      }
+      .item3 {
+        background-color: green;
+      }
+      .flex-image {
+        width: 100%;
+        height: auto;
+      }
+      .between-block {
+        width: 150px;
+        background-color: #ffffff;
+      }
+      .red-box-block {
+        position: relative;
+        width: 150px;
+        background-color: #ffffff;
+        .red-box {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          width: 50%;
+          height: 10%;
+          background-color: #ff0000;
+        }
+      }
+    }
+  }
+  .tel-section {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+    background-color: #56A9F6 !important;
+    color: #ffffff;
+    .tel-section-flex {
+      display: flex;
+      justify-content: center;
+      p {
+        margin-bottom: 0;
+        font-size: 16px;
+        &.text-tel {
+          margin-right: 50px;
+          margin-left: 50px;
+          font-size: 28px;
+          font-weight: bold;
+          line-height: 0.5;
+        }
+      }
+    }
+  }
+  .switch-button-section {
+    .btn-block {
+      text-align: center;
+      #btn-switch-before, #btn-switch-after, #btn-switch-none {
+        display: inline-block;
+        width: 150px;
+        margin: 20px;
+        padding: 16px;
+        color: #ffffff;
+      }
+    }
+    .img-block {
+      width: 50%;
+      height: 355px;
+      margin: 0 auto;
+      background-color: #e6e6e6;
+      img {
+        display: block;
+        width: 100%;
         margin: 0 auto;
+        &.img-before {
+          display: none;
+          margin: 0 auto;
+        }
+        &.img-after {
+          display: none;
+          margin: 0 auto;
+        }
       }
     }
   }
