@@ -1,0 +1,29 @@
+<div class="withdrawals-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>アンケート</h1>
+        <% if @withdrawal.errors.any? %>
+          <div id="error_explanation">
+            <h2>赤字の質問は少なくても1つチェックしてください</h2>
+          </div>
+        <% end %>
+        <%= form_for @withdrawal do |f| %>
+          <div class="form-group">
+            <%= f.label :impression, 'このアプリの感想を教えてください。', class: 'enquete-title' %></br>
+            <%= hidden_field_tag 'withdrawal[impression]' %>
+            <%= f.check_box 'impression_unuseful', {}, checked_value = '1' %>
+            <%= f.label :impression_unuseful, '使いにくい' %></br>
+            <%= f.check_box 'impression_difficult', {}, checked_value = '1' %>
+            <%= f.label :impression_difficult, 'わかりにくい' %></br>
+            <%= f.check_box 'impression_not_enough', {}, checked_value = '1' %>
+            <%= f.label :impression_not_enough, '機能が少ない' %></br>
+          </div>
+          <div class="form-group enquete-btn-block">
+            <%= f.submit 'アンケートに答えて退会を申請する', class: 'btn btn-primary btn-enquete' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

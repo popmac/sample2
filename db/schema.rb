@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021151040) do
+ActiveRecord::Schema.define(version: 20161121114337) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "withdrawals", force: :cascade do |t|
+    t.boolean  "impression_unuseful",   default: false, null: false
+    t.boolean  "impression_difficult",  default: false, null: false
+    t.boolean  "impression_not_enough", default: false, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
 end
