@@ -1,44 +1,196 @@
-<p id="notice"><%= notice %></p>
+<div class="sample-wrapper">
 
-<h1>実験アプリ</h1>
 
-<br>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">タイトル</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarEexample1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">メニューＡ</a></li>
+          <li class="active"><a href="#">メニューＢ</a></li>
+          <li><a href="#">メニューＣ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<h2>やったこと</h2>
 
-<ul>
-  <li>コンフリクト</li>
-  <li>バリデーションエラーで生成されるclassのcssを変更</li>
-  <li>一度マージしたブランチに再度コミットをプッシュしたらどうなるか</li>
-  <li>GitHub Desktopを試しに使った</li>
-</ul>
+  <div class="jumbotron-section">
+    <div class="jumbotron jumbotron-main">
+    </div>
+  </div>
 
-<br>
 
-<h2>以下はアプリの機能</h2>
+  <div class="application-title section-interval">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>実験アプリ</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.content %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="application-record section-interval section-position">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>やったこと</h2>
+          <ul>
+            <li>コンフリクトを解決した</li>
+            <li>バリデーションエラーで生成されるclassのcssを変更した</li>
+            <li>一度マージしたブランチに再度コミットをプッシュした</li>
+            <li>GitHub Desktopを試しに使った</li>
+            <li>GoogleMapを埋め込んで中央寄せにした</li>
+            <li>ジャンボトロンを背景で固定して表示させた</li>
+            <li>flexboxを試した</li>
+            <li>ボタンをクリックすると画像が表示されたり消えたりする機能を追加した</li>
+            <li>RailsTutrialに沿ってMinitestの設定をした</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<br>
 
-<%= link_to 'Productを作成する', new_product_path %>
+  <div class="application-function section-interval section-position">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>以下はアプリの機能</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products.each do |product| %>
+              <tr>
+                <td><%= product.name %></td>
+                <td><%= product.content %></td>
+                <td><%= link_to 'Show', product %></td>
+                <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to 'Productを作成する', new_product_path, class: "btn btn-primary btn-application-function" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="application-access-map section-interval section-position">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>地図を中央寄せで埋め込んでみた</h2>
+        </div>
+        <div class="row">
+          <div class="access-map-wrapper">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+              <div class="access-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205729.03185242313!2d137.10546131074352!3d36.324039223289645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff80862ab1514a5%3A0x767c6bf151a56733!2z5bKQ6Zic55yM6aOb6aio5biC!5e0!3m2!1sja!2sjp!4v1479023235498" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex-section section-interval section-position">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Flexboxを使ってみた-1</h2>
+          <div class="flex-sample">
+            <div class="flex-item item1"></div>
+            <div class="flex-item item2"></div>
+            <div class="flex-item item3"></div>
+          </div>
+          <h2>Flexboxを使ってみた-2</h2>
+          <div class="flex-sample">
+            <div>
+              <%= image_tag 'flex-sample.png', class: 'flex-image' %>
+            </div>
+            <div class="between-block"></div>
+            <div>
+              <%= image_tag 'flex-sample.png', class: 'flex-image' %>
+            </div>
+          </div>
+          <h2>Flexboxを使ってみた-3</h2>
+          <div class="flex-sample">
+            <div>
+              <%= image_tag 'flex-sample.png', class: 'flex-image' %>
+            </div>
+            <div class="red-box-block">
+              <div class="red-box">
+              </div>
+            </div>
+            <div>
+              <%= image_tag 'flex-sample.png', class: 'flex-image' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Flexboxを使ってみた-4</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tel-section">
+          <div class="tel-section-flex">
+            <p>導入でご不明な点はお気軽にお電話ください</p>
+            <p class="text-tel">00-0000-0000</p>
+            <p>受付時間 09:00 ~ 17:00（土・日・祝を除きます）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="switch-button-section section-interval section-position">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>ボタンをクリックしたら表示が切り替わる</h2>
+          <div class="btn-block">
+            <div class="btn btn-primary" id="btn-switch-before">
+              <span>Beforeを見る</span>
+            </div>
+            <div class="btn btn-primary" id="btn-switch-after">
+              <span>Afterを見る</span>
+            </div>
+            <div class="btn btn-primary" id="btn-switch-none">
+              <span>何も表示しない</span>
+            </div>
+          </div>
+          <div class="img-block">
+            <%= image_tag 'before.png', class: 'img-before' %>
+            <%= image_tag 'after.png', class: 'img-after' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
