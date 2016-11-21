@@ -1,4 +1,4 @@
-.sample-wrapper {
+.products-index-wrapper {
   margin-top: 50px;
   margin-bottom: 50px;
   .section-interval {
@@ -140,6 +140,35 @@
           margin: 0 auto;
         }
       }
+    }
+  }
+  .withdrawal-section {
+    .btn-application-function {
+      margin-top: 20px;
+      color: #ffffff !important;
+    }
+  }
+}
+
+.products-new-wrapper {
+  // バリデーションエラーが起きた際に表示されるメッセージ
+  #error_explanation {
+    display: none;
+  }
+  // バリデーションエラーが起きた際の表示の挙動を変更したもの
+  .field_with_errors {
+    display: inline-block !important;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    label {
+      color: #ff0000;
+      background-color: #ffffff;
+    }
+    input {
+      border-color: #ff0000;
+    }
+    textarea {
+      border-color: #ff0000;
     }
   }
 }
