@@ -4,9 +4,15 @@
       <div class="col-md-8 col-md-offset-2">
         <h1>アンケート</h1>
         <% if @withdrawal.errors.any? %>
-          <div id="error_explanation">
-            <h2>赤字の質問は少なくても1つチェックしてください</h2>
-          </div>
+        <div id="error_explanation">
+          <h2><%= @withdrawal.errors.count %>件のエラーがあります。</h2>
+
+          <ul>
+            <% @withdrawal.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
         <% end %>
         <%= form_for @withdrawal do |f| %>
           <div class="form-group">
