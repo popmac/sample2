@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      product:
+    attributes:
+      product:
+        name: 名前
+        content: 内容
+      withdrawal:
+        impression: 感想
