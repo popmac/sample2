@@ -10,13 +10,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">タイトル</a>
+        <a class="navbar-brand" href="/">Sample2</a>
       </div>
       <div class="collapse navbar-collapse" id="navbarEexample1">
         <ul class="nav navbar-nav">
-          <li><a href="#">メニューＡ</a></li>
-          <li class="active"><a href="#">メニューＢ</a></li>
-          <li><a href="#">メニューＣ</a></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "#{current_user.id}さん", '#' %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'ログイン・サインアップ', new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
