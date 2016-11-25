@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125141736) do
+ActiveRecord::Schema.define(version: 20161125145335) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161125141736) do
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email", "deleted_at"], name: "index_users_on_email_and_deleted_at", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "withdrawals", force: :cascade do |t|
