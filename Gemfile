@@ -56,3 +56,5 @@ gem 'bootstrap-sass'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'devise'
+gem "paranoia"
+gem 'paranoia_uniqueness_validator'
