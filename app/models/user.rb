@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   acts_as_paranoid
   validates :email, uniqueness_without_deleted: true
 
+  # オーバライドしてemailのユニーク制約だけを削除
   def self.included(base)
     base.extend ClassMethods
     assert_validations_api!(base)
