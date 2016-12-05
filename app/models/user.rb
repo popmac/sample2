@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   acts_as_paranoid
+  has_many :products
   validates :email, uniqueness_without_deleted: true
 
   # オーバライドしてemailのユニーク制約だけを削除
