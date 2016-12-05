@@ -64,6 +64,7 @@
           <table>
             <thead>
               <tr>
+                <th>User</th>
                 <th>Name</th>
                 <th>Content</th>
                 <th colspan="3"></th>
@@ -72,6 +73,7 @@
             <tbody>
               <% @products.each do |product| %>
               <tr>
+                <td><%= product.user_id %></td>
                 <td><%= product.name %></td>
                 <td><%= product.content %></td>
                 <td><%= link_to 'Show', product %></td>
