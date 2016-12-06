@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   acts_as_paranoid
   has_many :products
+  has_one :withdrawal
   validates :email, uniqueness_without_deleted: true
 
   # オーバライドしてemailのユニーク制約だけを削除
