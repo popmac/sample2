@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205133032) do
+ActiveRecord::Schema.define(version: 20161206114212) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 20161205133032) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "withdrawals", force: :cascade do |t|
-    t.boolean  "impression_unuseful",   default: false, null: false
-    t.boolean  "impression_difficult",  default: false, null: false
-    t.boolean  "impression_not_enough", default: false, null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.boolean  "impression_unuseful",             default: false, null: false
+    t.boolean  "impression_difficult",            default: false, null: false
+    t.boolean  "impression_not_enough",           default: false, null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "user_id",               limit: 4
   end
 
 end
