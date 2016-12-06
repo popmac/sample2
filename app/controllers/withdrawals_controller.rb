@@ -14,7 +14,7 @@ class WithdrawalsController < ApplicationController
 
   private
   def withdrawal_params
-    params.require(:withdrawal).permit(:impression_unuseful, :impression_difficult, :impression_not_enough)
+    params.require(:withdrawal).permit(:impression_unuseful, :impression_difficult, :impression_not_enough).merge(user_id: current_user.id)
   end
 
 end
