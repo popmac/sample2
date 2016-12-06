@@ -7,6 +7,7 @@ class WithdrawalsController < ApplicationController
   def create
     @withdrawal = Withdrawal.new(withdrawal_params)
     if @withdrawal.save
+      current_user.destroy
     else
       render :new
     end
