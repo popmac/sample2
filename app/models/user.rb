@@ -43,4 +43,9 @@ class User < ActiveRecord::Base
       validates_length_of       :password, within: password_length, allow_blank: true
     end
   end
+
+  # uniqueness_without_deleted: true を追加するとユニークチェックが余分にかかってしまうのを阻止する
+  def email_changed?
+    false
+  end
 end
