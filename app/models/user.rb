@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   has_one :withdrawal
   validates :email, uniqueness_without_deleted: true
 
-  # オーバライドしてemailのユニーク制約だけを削除
+  # deviseの設定をオーバライドして、emailのユニーク制約だけを外す
   def self.included(base)
     base.extend ClassMethods
     assert_validations_api!(base)
