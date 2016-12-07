@@ -94,6 +94,10 @@
       padding-bottom: 32px !important;
       background-color: #56A9F6 !important;
       color: #ffffff;
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+      }
       .tel-section-flex {
         display: flex;
         justify-content: center;
