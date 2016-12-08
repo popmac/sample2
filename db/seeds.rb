@@ -16,3 +16,4 @@ Product.create!(name: "atom",
 Product.create!(name: "slack",
                 content: "慣れると使いやすい",
                 user_id: 2)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
