@@ -13,6 +13,15 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
-permit_params :name, :content
+permit_params :name, :content, :user_id
+
+form do |f|
+  f.inputs do
+    f.input :user_id
+    f.input :name
+    f.input :content
+  end
+  f.actions
+end
 
 end
