@@ -13,6 +13,12 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
+controller do
+  def scoped_collection
+    Product.includes(:user)
+  end
+end
+
 index do
   selectable_column
 
