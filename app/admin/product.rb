@@ -37,7 +37,7 @@ permit_params :name, :content, :user_id
 
 form do |f|
   f.inputs do
-    f.input :user_id
+    f.input :user, :as => :select, :member_label => :id, :label => 'ユーザーID'
     f.input :name
     f.input :content
   end
