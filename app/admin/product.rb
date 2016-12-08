@@ -28,6 +28,8 @@ index do
       status_tag('Empty')
     end
   end
+  column :created_at
+  column :updated_at
   actions
 end
 
