@@ -13,6 +13,24 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
+index do
+  selectable_column
+
+  column :id do |product|
+    link_to product.id, admin_product_path(product)
+  end
+  column :name
+  column :content
+  column :user_id do |product|
+    if product.user.present?
+      link_to product.user.id, admin_user_path(product.user)
+    else
+      status_tag('Empty')
+    end
+  end
+  actions
+end
+
 permit_params :name, :content, :user_id
 
 form do |f|
