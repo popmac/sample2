@@ -17,4 +17,4 @@ Product.create!(name: "slack",
                 content: "慣れると使いやすい",
                 user_id: 2)
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'hoge1@hoge.com', password: 'aaaa1111', password_confirmation: 'aaaa1111')
