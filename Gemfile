@@ -54,6 +54,10 @@ group :test do
   gem 'guard-minitest'
 end
 
+group :production, :staging do
+  gem 'rails_12factor'
+end
+
 gem 'bootstrap-sass'
 gem 'pry-rails'
 gem 'rails-i18n'
