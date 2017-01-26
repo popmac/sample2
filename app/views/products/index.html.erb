@@ -188,6 +188,7 @@
     </div>
   </div>
 
+
     <div class="withdrawal-section section-interval section-position">
       <div class="container">
         <div class="row">
@@ -200,4 +201,73 @@
     </div>
 
 
+    <div class="click-order-section section-interval section-position">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>クリックされた順番で順位をつける</h2>
+            <div class="btn-block">
+              <div class="btn btn-primary click-order first second third unclicked" id="first">
+                <span>ミスチル</span>
+              </div>
+              <div class="btn btn-primary click-order first second third unclicked"  id="second">
+                <span>アジカン</span>
+              </div>
+              <div class="btn btn-primary click-order first second third unclicked" id="third">
+                <span>リップスライム</span>
+              </div>
+              <div class="btn btn-warning redo">
+                <span>やり直す</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </div>
+
+<script>
+$(function() {
+  var first_text = $('#first').text();
+  var second_text = $('#second').text();
+  var third_text = $('#third').text();
+  $('.click-order.first.second.third').on('click', function(){
+    if ($(this).hasClass('first') && $(this).hasClass('second') && $(this).hasClass('third')) {
+      $(this).addClass('clicked');
+      $(this).removeClass('second third unclicked');
+      var content = $(this).text()
+      $(this).text('1位' + '.' + content);
+      $('.click-order' + '.first' + '.second' + '.third').each(function(){
+        $(this).removeClass('first');
+      });
+    } else if ($(this).hasClass('second') && $(this).hasClass('third')) {
+      $(this).addClass('clicked');
+      $(this).removeClass('third unclicked');
+      var content = $(this).text()
+      $(this).text('2位' + '.' + content);
+      $('.click-order' + '.second' + '.third').each(function(){
+        $(this).addClass('clicked');
+        $(this).removeClass('second unclicked');
+        var content = $(this).text()
+        $(this).text('3位' + '.' + content);
+        console.log(first_text);
+        console.log(second_text);
+        console.log(third_text);
+        $('.redo').show();
+        if ($('.redo').show()) {
+          $('.redo').on('click', function(){
+            $('.click-order').addClass('first second third');
+            $('.click-order').removeClass('clicked');
+            $('#first').text(first_text);
+            $('#second').text(second_text);
+            $('#third').text(third_text);
+            $(this).hide();
+          });
+        }
+      });
+    }
+  });
+});
+</script>
