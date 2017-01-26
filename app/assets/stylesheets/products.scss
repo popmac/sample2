@@ -152,6 +152,23 @@
       color: #ffffff !important;
     }
   }
+  .click-order-section {
+    .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      .click-order {
+        position: relative;
+      }
+      .clicked {
+        opacity: 0.5;
+      }
+      .redo {
+        display: none;
+        width: 30%;
+        margin: 10px auto;
+      }
+    }
+  }
 }
 
 .products-new-wrapper {

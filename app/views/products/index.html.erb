@@ -256,6 +256,16 @@ $(function() {
         console.log(second_text);
         console.log(third_text);
         $('.redo').show();
+        if ($('.redo').show()) {
+          $('.redo').on('click', function(){
+            $('.click-order').addClass('first second third');
+            $('.click-order').removeClass('clicked');
+            $('#first').text(first_text);
+            $('#second').text(second_text);
+            $('#third').text(third_text);
+            $(this).hide();
+          });
+        }
       });
     }
   });
