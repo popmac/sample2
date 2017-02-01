@@ -296,3 +296,38 @@ $(function() {
   });
 });
 </script>
+
+<script>
+// removeClassを実行後のclickイベントの挙動について確認
+$(function() {
+
+  $('#block-1 .one.two.three').on('click', clickOrder);
+
+  function clickOrder(){
+    if ($(this).hasClass('one') && $(this).hasClass('two') && $(this).hasClass('three')) {
+      $(this).removeClass('two three');
+        var sentence = $(this).text();
+        $(this).text('1番目.' + sentence);
+      $('.two.three').each(function(i){
+        if(i === 2) {
+          return false;
+        }
+        $(this).removeClass('one');
+      });
+    } else if ($(this).hasClass('two') && $(this).hasClass('three')) {
+      $(this).removeClass('three');
+      var sentence = $(this).text();
+      $(this).text('2番目.' + sentence);
+      $('.two.three').each(function(i){
+        if(i === 1) {
+          return false;
+        }
+        $(this).removeClass('two');
+        var sentence = $(this).text();
+        $(this).text('3番目.' + sentence);
+      });
+    }
+  }
+
+});
+</script>
