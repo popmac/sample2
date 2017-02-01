@@ -226,9 +226,35 @@
     </div>
 
 
+    <div class="confirm-click-event-section section-interval section-position">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>removeClassを実行後のclickイベントの挙動について確認</h2>
+            <% 8.times.each do |num| %>
+              <div class="btn-block" id="block-<%= num + 1 %>">
+                <h3><%= num + 1 %>ブロック</h3>
+                  <div class="btn btn-primary one two three" id="q<%= 1 + ( 3 * num) %>">
+                    <span>ボタンA</span>
+                  </div>
+                  <div class="btn btn-primary one two three" id="q<%= 2 + ( 3 * num) %>">
+                    <span>ボタンB</span>
+                  </div>
+                  <div class="btn btn-primary one two three" id="q<%= 3 + ( 3 * num) %>">
+                    <span>ボタンC</span>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </div>
 
 <script>
+// クリックされた順番で順位をつける
 $(function() {
   var first_text = $('#first').text();
   var second_text = $('#second').text();
@@ -269,5 +295,40 @@ $(function() {
       });
     }
   });
+});
+</script>
+
+<script>
+// removeClassを実行後のclickイベントの挙動について確認
+$(function() {
+
+  $('#block-1 .one.two.three').on('click', clickOrder);
+
+  function clickOrder(){
+    if ($(this).hasClass('one') && $(this).hasClass('two') && $(this).hasClass('three')) {
+      $(this).removeClass('two three');
+        var sentence = $(this).text();
+        $(this).text('1番目.' + sentence);
+      $('.two.three').each(function(i){
+        if(i === 2) {
+          return false;
+        }
+        $(this).removeClass('one');
+      });
+    } else if ($(this).hasClass('two') && $(this).hasClass('three')) {
+      $(this).removeClass('three');
+      var sentence = $(this).text();
+      $(this).text('2番目.' + sentence);
+      $('.two.three').each(function(i){
+        if(i === 1) {
+          return false;
+        }
+        $(this).removeClass('two');
+        var sentence = $(this).text();
+        $(this).text('3番目.' + sentence);
+      });
+    }
+  }
+
 });
 </script>
