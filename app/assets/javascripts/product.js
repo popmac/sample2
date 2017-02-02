@@ -91,3 +91,37 @@ $(function() {
   }
 
 });
+
+
+// 「jQuery入門道場」の記述を試してみる-1
+$(function() {
+  $('.js-practice-section ul').on('click', 'li', function(){
+    $(this).css('background-color', 'red');
+    $('<li>四郎</li>').appendTo('ul');
+  });
+});
+
+
+// 「jQuery入門道場」の記述を試してみる-2
+$(function() {
+  function greet(event) {
+    alert(event.data.name + 'です。' + event.data.birth + '出身です。');
+  }
+  $('#taro').on('click', {name: '太郎', birth: '東京'}, greet);
+  $('#jiro').on('click', {name: '次郎', birth: '埼玉'}, greet);
+});
+
+$(function() {
+  function greet2() {
+    var me = $(this);
+    alert(me.attr('data-name') + 'です。' + me.attr('data-birth') + '出身です。' );
+  }
+  $('#sabrou, #shirou').on('click', greet2);
+});
+
+$(function() {
+  $('#gorou').on('click', function() {
+    var myname = $(this).data('myname');
+    alert('こんにちは' + myname + 'さん');
+  });
+});
