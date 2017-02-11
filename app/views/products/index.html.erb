@@ -61,11 +61,12 @@
       <div class="row">
         <div class="col-md-12">
           <h2>ScaffoldでProductの作成機能を追加した</h2>
-          <table>
+          <table class="table-products">
             <thead>
               <tr>
                 <th>User</th>
                 <th>Name</th>
+                <th>Url</th>
                 <th>Content</th>
                 <th colspan="3"></th>
               </tr>
@@ -75,6 +76,7 @@
               <tr>
                 <td><%= product.user_id %></td>
                 <td><%= product.name %></td>
+                <td><%= product.url %></td>
                 <td><%= product.content %></td>
                 <td><%= link_to 'Show', product %></td>
                 <td><%= link_to 'Edit', edit_product_path(product) %></td>

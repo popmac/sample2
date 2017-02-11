@@ -29,6 +29,13 @@
     }
   }
   .application-function {
+    .table-products {
+      border: 1px solid #000000;
+      th, tr, td {
+        padding: 5px;
+        border: 1px solid #000000;
+      }
+    }
     .btn-application-function {
       margin-top: 20px;
       color: #ffffff !important;

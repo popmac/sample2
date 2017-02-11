@@ -15,6 +15,7 @@ ActiveAdmin.register Product do
       link_to product.id, admin_product_path(product)
     end
     column :name
+    column :url
     column :content
     column :user_id do |product|
       if product.user.present?
@@ -29,7 +30,7 @@ ActiveAdmin.register Product do
   end
 
   # 管理画面からProductのデータを登録できるようにする
-  permit_params :name, :content, :user_id
+  permit_params :name, :url, :content, :user_id
 
   # Productのデータを登録するフォームをカスタマイズ
   form do |f|
@@ -37,6 +38,7 @@ ActiveAdmin.register Product do
       # user_idを選択できるようにしている
       f.input :user, :as => :select, :member_label => :id, :label => 'ユーザーID'
       f.input :name
+      f.input :url
       f.input :content
     end
     f.actions
