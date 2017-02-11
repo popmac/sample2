@@ -70,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :content).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
     end
 end
