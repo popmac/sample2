@@ -16,6 +16,7 @@ ActiveAdmin.register Product do
     end
     column :name
     column :url
+    column :title
     column :content
     column :user_id do |product|
       if product.user.present?

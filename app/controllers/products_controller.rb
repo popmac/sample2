@@ -26,6 +26,8 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @url = @product.url
+    @product.title = get_article_title(@url)
 
     respond_to do |format|
       if @product.save
@@ -71,5 +73,15 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+    end
+
+    def get_article_title(url)
+      agent = Mechanize.new
+      page = agent.get("#{url}")
+      element = page.at('head title')
+      title = element.inner_text
+      # 以下はdescriptionを取得する場合
+      # node = page.at("head meta[name='description']")
+      # description = node["content"]
     end
 end
