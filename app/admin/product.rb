@@ -5,6 +5,25 @@ ActiveAdmin.register Product do
     def scoped_collection
       Product.includes(:user)
     end
+    def create
+      @product = Product.new(product_params)
+      url = @product.url
+      title = get_url_title(url)
+      @product.title = title
+      @product.save
+      redirect_to admin_product_path(@product)
+    end
+    private
+    def product_params
+      params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+    end
+    def get_url_title(url)
+      agent = Mechanize.new
+      page = agent.get("#{url}")
+      element = page.at('head title')
+      title = element.inner_text
+      return title
+    end
   end
 
   # 登録されたデータ一覧が表示される画面をカスタマイズ
