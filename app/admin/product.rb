@@ -8,6 +8,11 @@ ActiveAdmin.register Product do
     def create
       @product = Product.new(product_params)
       url = @product.url
+      title = get_url_title(url)
+      @product.title = title
+      @product.save
+      redirect_to admin_product_path(@product)
+    end
     private
     def product_params
       params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
@@ -17,9 +22,7 @@ ActiveAdmin.register Product do
       page = agent.get("#{url}")
       element = page.at('head title')
       title = element.inner_text
-      @product.title = title
-      @product.save
-      redirect_to admin_product_path(@product)
+      return title
     end
   end
 
