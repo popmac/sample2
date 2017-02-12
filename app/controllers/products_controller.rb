@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @url = @product.url
-    @product.title = get_article_title(@url)
+    @product.title = get_url_title(@url)
 
     respond_to do |format|
       if @product.save
@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
     end
 
-    def get_article_title(url)
+    def get_url_title(url)
       agent = Mechanize.new
       page = agent.get("#{url}")
       element = page.at('head title')
