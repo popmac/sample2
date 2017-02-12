@@ -6,8 +6,13 @@ ActiveAdmin.register Product do
       Product.includes(:user)
     end
     def create
-      @product = Product.new(params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id))
+      @product = Product.new(product_params)
       url = @product.url
+    private
+    def product_params
+      params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+    end
+    def get_url_title(url)
       agent = Mechanize.new
       page = agent.get("#{url}")
       element = page.at('head title')
