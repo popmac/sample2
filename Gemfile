@@ -67,3 +67,5 @@ gem "paranoia"
 gem 'paranoia_uniqueness_validator'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mechanize'
+gem 'capybara'
+gem 'poltergeist', require: 'capybara/poltergeist'

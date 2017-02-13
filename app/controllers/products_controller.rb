@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @url = @product.url
-    @product.title = get_url_title(@url)
+    # @product.title = get_url_title(@url)
+    @product.title = get_url_title_by_capybara(@url)
 
     respond_to do |format|
       if @product.save
@@ -83,5 +84,17 @@ class ProductsController < ApplicationController
       # 以下はdescriptionを取得する場合
       # node = page.at("head meta[name='description']")
       # description = node["content"]
+    end
+
+    def get_url_title_by_capybara(url)
+      Capybara.register_driver :poltergeist do |app|
+        Capybara::Poltergeist::Driver.new(app, {:js_errors => false, :timeout => 1000 })
+      end
+      Capybara.ignore_hidden_elements = false
+      session = Capybara::Session.new(:poltergeist)
+      session.visit "#{url}"
+      session.find('head title').text
+      # 一番最初に出てきたh1のtextを取得
+      # session.first('h1').text
     end
 end
