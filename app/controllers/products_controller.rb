@@ -93,6 +93,8 @@ class ProductsController < ApplicationController
       Capybara.ignore_hidden_elements = false
       session = Capybara::Session.new(:poltergeist)
       session.visit "#{url}"
-      session.find('title').text
+      # session.find('title').text
+      # 一番最初に出てきたh1のtextを取得
+      session.first('h1').text
     end
 end
