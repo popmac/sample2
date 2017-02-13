@@ -8,6 +8,7 @@ ActiveAdmin.register Product do
     def create
       @product = Product.new(product_params)
       url = @product.url
+      # title = get_url_title(url)
       title = get_url_title_by_capybara(url)
       @product.title = title
       @product.save
