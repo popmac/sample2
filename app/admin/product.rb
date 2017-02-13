@@ -8,7 +8,8 @@ ActiveAdmin.register Product do
     def create
       @product = Product.new(product_params)
       url = @product.url
-      title = get_url_title(url)
+      # title = get_url_title(url)
+      title = get_url_title_by_capybara(url)
       @product.title = title
       @product.save
       redirect_to admin_product_path(@product)
@@ -23,6 +24,17 @@ ActiveAdmin.register Product do
       element = page.at('head title')
       title = element.inner_text
       return title
+    end
+    def get_url_title_by_capybara(url)
+      Capybara.register_driver :poltergeist do |app|
+        Capybara::Poltergeist::Driver.new(app, {:js_errors => false, :timeout => 1000 })
+      end
+      Capybara.ignore_hidden_elements = false
+      session = Capybara::Session.new(:poltergeist)
+      session.visit "#{url}"
+      session.find('head title').text
+      # 一番最初に出てきたh1のtextを取得
+      # session.first('h1').text
     end
   end
 
