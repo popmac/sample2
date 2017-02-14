@@ -81,8 +81,10 @@ class ProductsController < ApplicationController
       @product.title = title
       description = session.find('meta[name="description"]')
       @product.content = description['content']
-      img = session.first('img')
-      @product.picture_url = img['src']
+      # img = session.first('img')
+      # @product.picture_url = img['src']
+      og_image = session.find('meta[property="og:image"]')
+      @product.picture_url = og_image['content']
       Capybara.reset_sessions!
       # 一番最初に出てきたh1のtextを取得
       # session.first('h1').text
