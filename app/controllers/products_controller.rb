@@ -17,7 +17,8 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @url = @product.url
     # @product.title = get_url_title(@url)
-    @product.title = get_url_title_by_capybara(@url)
+    # @product.title = get_url_title_by_capybara(@url)
+    get_url_title_by_capybara(@url)
 
     if @product.save
       redirect_to edit_product_path(@product)
@@ -51,7 +52,8 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+      # params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :url).merge(user_id: current_user.id)
     end
 
     def edit_product_params
@@ -75,7 +77,10 @@ class ProductsController < ApplicationController
       Capybara.ignore_hidden_elements = false
       session = Capybara::Session.new(:poltergeist)
       session.visit "#{url}"
-      session.find('head title').text
+      title = session.find('head title').text
+      @product.title = title
+      description = session.find('meta[name="description"]')
+      @product.content = description['content']
       # 一番最初に出てきたh1のtextを取得
       # session.first('h1').text
     end

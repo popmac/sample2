@@ -9,8 +9,7 @@ ActiveAdmin.register Product do
       @product = Product.new(product_params)
       url = @product.url
       # title = get_url_title(url)
-      title = get_url_title_by_capybara(url)
-      @product.title = title
+      get_url_title_by_capybara(url)
       @product.save
       flash[:notice] = 'titleが正しいか確認してください'
       # createしたらすぐにeditにリダイレクトさせる
@@ -34,7 +33,9 @@ ActiveAdmin.register Product do
       Capybara.ignore_hidden_elements = false
       session = Capybara::Session.new(:poltergeist)
       session.visit "#{url}"
-      session.find('head title').text
+      @product.title = session.find('head title').text
+      description = session.find('meta[name="description"]')
+      @product.content = description['content']
       # 一番最初に出てきたh1のtextを取得
       # session.first('h1').text
     end
