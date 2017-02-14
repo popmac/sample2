@@ -73,6 +73,7 @@
                 <th>Url</th>
                 <th>Title</th>
                 <th>Content</th>
+                <th>Image</th>
                 <th colspan="3"></th>
               </tr>
             </thead>
@@ -85,6 +86,7 @@
                 <td class="btn btn-info"><%= link_to '続きを見る', "#{product.url}", target: 'blank' %></td>
                 <td><%= product.title %></td>
                 <td><%= product.content %></td>
+                <td><%= image_tag product.image %></td>
                 <td><%= link_to 'Show', product %></td>
                 <td><%= link_to 'Edit', edit_product_path(product) %></td>
                 <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

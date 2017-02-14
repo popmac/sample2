@@ -17,7 +17,7 @@ ActiveAdmin.register Product do
     end
     private
     def product_params
-      params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :url, :content, :image).merge(user_id: current_user.id)
     end
     def get_url_title(url)
       agent = Mechanize.new
@@ -53,6 +53,9 @@ ActiveAdmin.register Product do
     column :url
     column :title
     column :content
+    column :image do |product|
+      image_tag product.image
+    end
     column :user_id do |product|
       if product.user.present?
         link_to product.user.id, admin_user_path(product.user)
@@ -66,7 +69,7 @@ ActiveAdmin.register Product do
   end
 
   # 管理画面からProductのデータを登録できるようにする
-  permit_params :name, :url, :title, :content, :user_id
+  permit_params :name, :url, :title, :content, :image, :user_id
 
   # Productのデータを登録するフォームをカスタマイズ
   form do |f|
@@ -77,6 +80,7 @@ ActiveAdmin.register Product do
       f.input :url
       f.input :title
       f.input :content
+      f.input :image
     end
     f.actions
   end

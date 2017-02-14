@@ -53,11 +53,11 @@ class ProductsController < ApplicationController
 
     def product_params
       # params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
-      params.require(:product).permit(:name, :url).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :url, :image).merge(user_id: current_user.id)
     end
 
     def edit_product_params
-      params.require(:product).permit(:name, :url, :title, :content).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :url, :title, :content, :image).merge(user_id: current_user.id)
     end
 
     def get_url_title(url)
