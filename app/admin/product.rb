@@ -12,7 +12,9 @@ ActiveAdmin.register Product do
       title = get_url_title_by_capybara(url)
       @product.title = title
       @product.save
-      redirect_to admin_product_path(@product)
+      flash[:notice] = 'titleが正しいか確認してください'
+      # createしたらすぐにeditにリダイレクトさせる
+      redirect_to edit_admin_product_path(@product)
     end
     private
     def product_params
@@ -62,7 +64,7 @@ ActiveAdmin.register Product do
   end
 
   # 管理画面からProductのデータを登録できるようにする
-  permit_params :name, :url, :content, :user_id
+  permit_params :name, :url, :title, :content, :user_id
 
   # Productのデータを登録するフォームをカスタマイズ
   form do |f|
@@ -71,6 +73,7 @@ ActiveAdmin.register Product do
       f.input :user, :as => :select, :member_label => :id, :label => 'ユーザーID'
       f.input :name
       f.input :url
+      f.input :title
       f.input :content
     end
     f.actions
