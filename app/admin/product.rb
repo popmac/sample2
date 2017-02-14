@@ -36,6 +36,7 @@ ActiveAdmin.register Product do
       @product.title = session.find('head title').text
       description = session.find('meta[name="description"]')
       @product.content = description['content']
+      Capybara.reset_sessions!
       # 一番最初に出てきたh1のtextを取得
       # session.first('h1').text
     end
