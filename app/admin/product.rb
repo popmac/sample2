@@ -6,8 +6,8 @@ ActiveAdmin.register Product do
       Product.includes(:user)
     end
     def create
-      @product = Product.new(product_params)
-      url = @product.url
+      @product = Product.new(create_product_params)
+      url = @product.site_url
       # title = get_url_title(url)
       get_url_title_by_capybara(url)
       @product.save
@@ -16,8 +16,8 @@ ActiveAdmin.register Product do
       redirect_to edit_admin_product_path(@product)
     end
     private
-    def product_params
-      params.require(:product).permit(:name, :url, :content, :image).merge(user_id: current_user.id)
+    def create_product_params
+      params.require(:product).permit(:name, :site_url, :content, :image).merge(user_id: current_user.id)
     end
     def get_url_title(url)
       agent = Mechanize.new
@@ -50,7 +50,7 @@ ActiveAdmin.register Product do
       link_to product.id, admin_product_path(product)
     end
     column :name
-    column :url
+    column :site_url
     column :title
     column :content
     column :image do |product|
@@ -69,7 +69,7 @@ ActiveAdmin.register Product do
   end
 
   # 管理画面からProductのデータを登録できるようにする
-  permit_params :name, :url, :title, :content, :image, :user_id
+  permit_params :name, :site_url, :title, :content, :image, :user_id
 
   # Productのデータを登録するフォームをカスタマイズ
   form do |f|
@@ -77,7 +77,7 @@ ActiveAdmin.register Product do
       # user_idを選択できるようにしている
       f.input :user, :as => :select, :member_label => :id, :label => 'ユーザーID'
       f.input :name
-      f.input :url
+      f.input :site_url
       f.input :title
       f.input :content
       f.input :image
