@@ -64,6 +64,7 @@
       <div class="row">
         <div class="col-md-12">
           <h2>ScaffoldでProductの作成機能を追加した</h2>
+          <%= link_to 'Productを作成する', new_product_path, class: "btn btn-primary btn-application-function" %>
           <table class="table-products">
             <thead>
               <tr>
@@ -100,7 +101,6 @@
               <% end %>
             </tbody>
           </table>
-          <%= link_to 'Productを作成する', new_product_path, class: "btn btn-primary btn-application-function" %>
         </div>
       </div>
     </div>
