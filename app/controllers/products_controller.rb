@@ -90,6 +90,7 @@ class ProductsController < ApplicationController
       else
         @product.picture_url = og_image['content']
       end
+      session.driver.quit
       Capybara.reset_sessions!
       # 一番最初に出てきたh1のtextを取得
       # session.first('h1').text
