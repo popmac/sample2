@@ -14,11 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @url = @product.url
-    # @product.title = get_url_title(@url)
-    # @product.title = get_url_title_by_capybara(@url)
-    get_url_title_by_capybara(@url)
+    @product = Product.new(create_product_params)
+    @site_url = @product.site_url
+    # @product.title = get_url_title(@site_url)
+    # @product.title = get_url_title_by_capybara(@site_url)
+    get_url_title_by_capybara(@site_url)
 
     if @product.save
       redirect_to edit_product_path(@product)
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(edit_product_params)
+    if @product.update(update_product_params)
       redirect_to product_path(@product)
     else
       render :edit
@@ -51,13 +51,13 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
-    def product_params
-      # params.require(:product).permit(:name, :url, :content).merge(user_id: current_user.id)
-      params.require(:product).permit(:name, :url, :image).merge(user_id: current_user.id)
+    def create_product_params
+      # params.require(:product).permit(:name, :site_url, :content).merge(user_id: current_user.id)
+      params.require(:product).permit(:name, :site_url, :image).merge(user_id: current_user.id)
     end
 
-    def edit_product_params
-      params.require(:product).permit(:name, :url, :title, :content, :image).merge(user_id: current_user.id)
+    def update_product_params
+      params.require(:product).permit(:name, :site_url, :title, :content, :image).merge(user_id: current_user.id)
     end
 
     def get_url_title(url)
