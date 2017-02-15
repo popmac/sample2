@@ -79,8 +79,12 @@ class ProductsController < ApplicationController
       session.visit "#{url}"
       title = session.find('head title').text
       @product.title = title
-      description = session.find('meta[name="description"]')
-      @product.content = description['content']
+      tmp_description = session.all('meta[name="description"]')
+      description = tmp_description[0]
+      if description == nil
+      else
+        @product.content = description['content']
+      end
       # img = session.first('img')
       # @product.picture_url = img['src']
       # 以下はfindを使うと例外のエラーが発生するためallを使っている

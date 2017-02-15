@@ -34,8 +34,12 @@ ActiveAdmin.register Product do
       session = Capybara::Session.new(:poltergeist)
       session.visit "#{url}"
       @product.title = session.find('head title').text
-      description = session.find('meta[name="description"]')
-      @product.content = description['content']
+      tmp_description = session.all('meta[name="description"]')
+      description = tmp_description[0]
+      if description == nil
+      else
+        @product.content = description['content']
+      end
       session.driver.quit
       Capybara.reset_sessions!
       # 一番最初に出てきたh1のtextを取得
