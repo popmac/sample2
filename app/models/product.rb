@@ -12,7 +12,7 @@
 class Product < ActiveRecord::Base
   belongs_to :user
   validates :user_id, presence: true
-  validates :name, presence: true
+  # validates :name, presence: true
   validates :site_url, presence: true
   # validates :content, presence: true
   mount_uploader :image, ProductImageUploader
