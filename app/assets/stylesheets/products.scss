@@ -192,6 +192,9 @@
         background-size: 100px;
         height: 100px;
         width: 100px;
+        &:hover {
+          background-color: transparent;
+        }
       }
     }
   }
