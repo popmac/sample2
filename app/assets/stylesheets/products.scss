@@ -186,6 +186,15 @@
       text-align: center;
     }
   }
+  .social_button_section {
+    .social-share-button {
+      .ssb-icon {
+        background-size: 100px;
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
 }
 
 .products-new-wrapper {
